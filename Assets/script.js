@@ -16,7 +16,18 @@ function generatePassword() {
   var nums = ["0","1","2","3","4","5","6","7","8","9"];
   var specialChars = ["!","$","%","&","?"];
 
-  var passLength = prompt("How long would you like your password to be, between 8 and 128 characters");
+  var passLength = prompt("How long would you like your password to be, between 8 and 128 characters"); 
+  console.log(passLength);
+
+  
+  if (passLength < 8 || passLength > 128) {
+    window.alert("please pick a valid option");
+    return "";
+  } else {
+    window.alert("You have picked a " + passLength + " character-long password");
+  }
+
+
   var lowerConfirm = confirm("Would you like lower case letters in your password?");
   var upperConfirm = confirm("Would you like upper case letter in your password?");
   var numsConfirm = confirm("Would you like numbers in your password?");
@@ -41,19 +52,11 @@ function generatePassword() {
     selectedCriteria.push(...specialChars);
   }
 
-
-  
-
-
-  
-
   for (var i = 0; i < passLength; i++) {
     var number = Math.floor(Math.random() * Math.floor(selectedCriteria.length));
     var value = selectedCriteria[number];
     passArray.push(value)
   }
-
-  
 
   if (passArray.length > 0) {
     password = passArray.join('');
