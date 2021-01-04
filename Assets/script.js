@@ -33,7 +33,9 @@ function generatePassword() {
   var numsConfirm = confirm("Include numbers in your password?");
   var specialCharsConfirm = confirm("Include special characters in your password?");
 
-  if (lowerConfirm, upperConfirm, numsConfirm, specialCharsConfirm === false) {
+  var confirmCombined = (lowerConfirm + upperConfirm + numsConfirm + specialCharsConfirm)
+
+  if (!confirmCombined) {
     window.alert("Please pick at least one valid character option.");
     return "";
   }
